@@ -3,6 +3,7 @@ package zadanie.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,69 +27,62 @@ public class GroupController {
 	GroupRepository gr;
 
 	@GetMapping("/add")
-	public String register(Model m) {
+	public String add(Model m) {
 		m.addAttribute("group", new Group());
-		return "group/addGroup";
+		return "/group/addGroup";
 	}
 
 	@PostMapping("/add")
-	public String registerPost(@Valid @ModelAttribute Group group, BindingResult bindingResult, Model m) {
+	public String addPost(@Valid @ModelAttribute Group group, BindingResult bindingResult, Model m) {
 		if (bindingResult.hasErrors()) {
-			return "group";
+			return "/group/addGroup";
 		}
 
 		List<Group> groups = this.gr.findAll();
 		for (Group g : groups) {
 			if (g.getName().equals(group.getName())) {
 				m.addAttribute("msg", "This group name address is already used. Try different name.");
-				return "group/addGroup";
+				return "/group/addGroup";
 			}
 		}
 		this.gr.save(group);
 		HttpSession s = SessionManager.session();
 		s.setAttribute("group", group);
-		return "redirect:/";
+		return "redirect:/group/list";
 	}
 
-	@GetMapping("/change")
+	@GetMapping("/{id}/edit")
 	public String changeGroup(Model m) {
 		HttpSession s = SessionManager.session();
 		Group g = (Group) s.getAttribute("group");
 		m.addAttribute("group", g);
-		return "change";
+		return "/group/groupUpdate";
 	}
 
-	@PostMapping("/change")
+	@PostMapping("/{id}/edit")
 	public String changePost(@Valid @ModelAttribute Group group, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
-			return "redirect:/register";
+			return "redirect:/group/list";
 		}
 		HttpSession s = SessionManager.session();
 		Group g = (Group) s.getAttribute("group");
 		group.setId(g.getId());
 		this.gr.save(group);
-		return "redirect:/";
+		return "redirect:/group/list";
 	}
 
-	@GetMapping("/delete")
-	public String delete(Model m) {
-		HttpSession s = SessionManager.session();
-		Group g = (Group) s.getAttribute("group");
-		m.addAttribute("group", g);
-		return "delete";
-	}
-
-	@GetMapping("/delete/{dec}")
+	@GetMapping("/{id}/del")
 	public String deletePost(@PathVariable int dec) {
-		if (dec == 1) {
 			HttpSession s = SessionManager.session();
 			Group g = (Group) s.getAttribute("group");
 			s.invalidate();
 			this.gr.delete(g);
-			return "redirect:/login";
-		}
-		return "redirect:/";
+			return "redirect:/group/list";
+	
 	}
-
+	@ModelAttribute("availableGroups")
+	public List<Group> getGroups(){
+		return this.gr.findAll();
+	}
 
 }
