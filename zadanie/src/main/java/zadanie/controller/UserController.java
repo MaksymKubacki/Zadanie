@@ -50,18 +50,18 @@ public class UserController {
 		return "redirect:/list";
 	}
 
-	@GetMapping("/change")
+	@GetMapping("/userUpdate")
 	public String changeUser(Model m) {
 		HttpSession s = SessionManager.session();
 		User u = (User) s.getAttribute("user");
 		m.addAttribute("user", u);
-		return "change";
+		return "userUpdate";
 	}
 
-	@PostMapping("/change")
+	@PostMapping("/userUpdate")
 	public String changePost(@Valid @ModelAttribute User user, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
-			return "redirect:/register";
+			return "redirect:/";
 		}
 		HttpSession s = SessionManager.session();
 		User u = (User) s.getAttribute("user");
@@ -85,7 +85,7 @@ public class UserController {
 			User u = (User) s.getAttribute("user");
 			s.invalidate();
 			this.ur.delete(u);
-			return "redirect:/login";
+			return "redirect:/";
 		}
 		return "redirect:/";
 	}

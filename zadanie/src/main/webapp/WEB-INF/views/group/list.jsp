@@ -9,14 +9,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>User list</title>
+<title>Group list</title>
 </head>
 <body>
-	<p>User list</p>
-	<c:forEach items="${availableUsers}" var="user">
-		<c:out value="${users}" />
-		<a href="/zadanie/User/${user.id}/del">DEL</a>
-		<a href="/zadanie/User/${user.id}/edit">Edit</a>
+	<p>Group list</p>
+	<c:forEach items="${availableGroups}" var="group">
+		<c:out value="${groups}" />
+		<a href="/zadanie/group/${group.id}/del">DEL</a>
+		<a href="/zadanie/group/${group.id}/edit">Edit</a>
 		<br />
 	</c:forEach>
 
