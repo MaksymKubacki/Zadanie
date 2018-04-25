@@ -27,6 +27,7 @@ public class User {
 	private String lastName;
 	private Date birthDate;
 	private String password;
+	@OneToMany
 	private List<Group> group;
 	
 	public User() {
