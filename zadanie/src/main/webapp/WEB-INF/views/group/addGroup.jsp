@@ -15,9 +15,7 @@
 <body>
 <p>Add Group</p>
 	<form:form method="post" modelAttribute="group">
-		Name<form:input path="nickName" type="text"/> <form:errors path="name" /> <br />
-		
-		
+		Name<form:input path="name" type="text"/> <form:errors path="name" /> <br />
 		<input type='submit' /><br />
 	</form:form>
 ${group}<br/>

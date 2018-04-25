@@ -24,7 +24,7 @@ import zadanie.repository.GroupRepository;
 @RequestMapping("/group")
 public class GroupController {
 	@Autowired
-	GroupRepository gr;
+	private GroupRepository gr;
 
 	@GetMapping("/add")
 	public String add(Model m) {

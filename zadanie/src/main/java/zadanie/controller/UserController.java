@@ -24,7 +24,7 @@ import zadanie.repository.UserRepository;
 @RequestMapping("/user")
 public class UserController {
 	@Autowired
-	UserRepository ur;
+	private UserRepository ur;
 
 	@GetMapping("/add")
 	public String add(Model m) {

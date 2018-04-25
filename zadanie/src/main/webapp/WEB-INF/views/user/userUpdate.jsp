@@ -14,7 +14,7 @@
 
 	<form:form method="post" modelAttribute="user">
 		<p>
-			User Nickame
+			User Nickname
 			<form:input path="nickame" />
 			<form:errors path="nickame"></form:errors>
 		</p>

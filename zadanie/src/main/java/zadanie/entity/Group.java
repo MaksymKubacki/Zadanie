@@ -60,11 +60,4 @@ public class Group {
 		this.users = users;
 	}
 
-
-
-	
-	
-	
-	
-
 }

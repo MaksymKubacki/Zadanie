@@ -14,12 +14,9 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-
-
 @Entity
 @Table(name = "user")
 public class User {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -104,10 +101,5 @@ public class User {
 	public void setGroup(List<Group> group) {
 		this.group = group;
 	}
-	
-	
-	
-	
-	
 
 }

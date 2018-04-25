@@ -16,7 +16,7 @@
 		Nickname<form:input path="nickname" type="text"/> <form:errors path="nickname" /> <br />
 		First name<form:input path="firstName" type="text"/> <form:errors path="firstName" /> <br />
 		Last name<form:input path="lastName" type="text" /> <form:errors path="lastName" /> <br />
-		Password<form:input path="password" type="text"/> <form:errors path="firstName" /> <br />
+		Password<form:input path="password" type="text"/> <form:errors path="password" /> <br />
 		
 		<input type='submit' /><br />
 	</form:form>
