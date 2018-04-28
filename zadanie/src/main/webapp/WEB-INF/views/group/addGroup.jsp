@@ -14,11 +14,11 @@
 
 <body>
 <p>Add Group</p>
-	<form:form method="post" modelAttribute="group">
+	<form:form method="post" modelAttribute="squad">
 		Name<form:input path="name" type="text"/> <form:errors path="name" /> <br />
 		<input type='submit' /><br />
 	</form:form>
-${group}<br/>
+${squad}<br/>
 
 </body>
 </html>

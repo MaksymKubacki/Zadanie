@@ -11,16 +11,26 @@
 <title>Add User</title>
 </head>
 <body>
-<p>Add User</p>
+	<p>Add User</p>
 	<form:form method="post" modelAttribute="user">
-		Nickname<form:input path="nickname" type="text"/> <form:errors path="nickname" /> <br />
-		First name<form:input path="firstName" type="text"/> <form:errors path="firstName" /> <br />
-		Last name<form:input path="lastName" type="text" /> <form:errors path="lastName" /> <br />
-		Password<form:input path="password" type="text"/> <form:errors path="password" /> <br />
-		
-		<input type='submit' /><br />
+		Nickname <form:input path="nickname" type="text" />
+		<form:errors path="nickname" />
+		<br />
+		First name <form:input path="firstName" type="text" />
+		<form:errors path="firstName" />
+		<br />
+		Last name <form:input path="lastName" type="text" />
+		<form:errors path="lastName" />
+		<br />
+		Password <form:password path="password" />
+		<form:errors path="password" />
+		<br />
+
+		<input type='submit' />
+		<br />
 	</form:form>
-${user}<br/>
+	${user}
+	<br />
 
 </body>
 </html>

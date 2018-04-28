@@ -9,22 +9,22 @@ import javax.persistence.Table;
 
 @Entity
 //@Table(name = "group")
-public class Group {
+public class Squad {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	private String name;
-//	@ManyToOne
+	@ManyToOne
 	private User users;
 	
 	
-	public Group() {
+	public Squad() {
 		super();
 	}
 
 
-	public Group(String name, User users) {
+	public Squad(String name, User users) {
 		super();
 		this.name = name;
 		this.users = users;

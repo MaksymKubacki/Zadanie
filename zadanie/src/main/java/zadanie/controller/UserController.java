@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import zadanie.bean.SessionManager;
-import zadanie.entity.Group;
+import zadanie.entity.Squad;
 import zadanie.entity.User;
 import zadanie.repository.UserRepository;
 

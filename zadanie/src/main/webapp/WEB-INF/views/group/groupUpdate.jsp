@@ -12,9 +12,10 @@
 </head>
 <body>
 
-	<form:form method="post" modelAttribute="group">
+	<form:form method="post" modelAttribute="squad">
 		<p>
 			Group Name
+			<form:input type="hidden" path="id" placeholder="id" value="${id}" />
 			<form:input path="name" />
 			<form:errors path="name"></form:errors>
 		</p>

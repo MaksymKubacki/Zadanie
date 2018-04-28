@@ -13,10 +13,10 @@
 </head>
 <body>
 	<p>Group list</p>
-	<c:forEach items="${availableGroups}" var="group">
-		<c:out value="${groups}" />
-		<a href="/zadanie/group/${group.id}/del">DEL</a>
-		<a href="/zadanie/group/${group.id}/edit">Edit</a>
+	<c:forEach items="${availableSquads}" var="squad">
+		<c:out value="${squads}" />
+		<a href="/zadanie/group/${squad.id}/del">DEL</a>
+		<a href="/zadanie/group/${squad.id}/edit">Edit</a>
 		<br />
 	</c:forEach>
 

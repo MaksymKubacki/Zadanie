@@ -29,21 +29,21 @@ public class User {
 	private Date birthDate;
 	private String password;
 	@OneToMany
-	private List<Group> group;
+	private List<Squad> squad;
 	
 	public User() {
 		super();
 	}
 	
 	public User(String nickname, String firstName, String lastName, Date birthDate, String password,
-			List<Group> group) {
+			List<Squad> squad) {
 		super();
 		this.nickname = nickname;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthDate = birthDate;
 		this.password = password;
-		this.group = group;
+		this.squad = squad;
 	}
 
 
@@ -96,12 +96,12 @@ public class User {
 		this.password = password;
 	}
 
-	public List<Group> getGroup() {
-		return group;
+	public List<Squad> getSquad() {
+		return squad;
 	}
 
-	public void setGroup(List<Group> group) {
-		this.group = group;
+	public void setSquad(List<Squad> squad) {
+		this.squad = squad;
 	}
 
 }
