@@ -46,37 +46,38 @@ public class SquadController {
 			}
 		}
 		this.gr.save(squad);
-		HttpSession s = SessionManager.session();
-		s.setAttribute("squad", squad);
+//		HttpSession s = SessionManager.session();
+//		s.setAttribute("squad", squad);
 		return "redirect:/group/list";
 	}
 
 	@GetMapping("/{id}/edit")
-	public String changeSquad(Model m) {
-		HttpSession s = SessionManager.session();
-		Squad g = (Squad) s.getAttribute("squad");
+	@Transactional
+	public String changeSquad(Model m, @PathVariable Long id) {
+//		HttpSession s = SessionManager.session();
+		Squad g =  this.gr.findById(id);
 		m.addAttribute("squad", g);
 		return "/group/groupUpdate";
 	}
 
-	@PostMapping("/{id}/edit")
+	@PostMapping(value="{id}/edit")
 	public String changePost(@Valid @ModelAttribute Squad squad, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			return "redirect:/group/list";
 		}
-		HttpSession s = SessionManager.session();
-		Squad g = (Squad) s.getAttribute("squad");
-		squad.setId(g.getId());
+//		HttpSession s = SessionManager.session();
+//		Squad g = (Squad) s.getAttribute("squad");
+//		squad.setId(g.getId());
 		this.gr.save(squad);
 		return "redirect:/group/list";
 	}
 
 	@GetMapping("/{id}/del")
-	public String deletePost(@PathVariable int dec) {
-			HttpSession s = SessionManager.session();
-			Squad g = (Squad) s.getAttribute("squad");
-			s.invalidate();
-			this.gr.delete(g);
+	public String deletePost(@PathVariable long id) {
+//			HttpSession s = SessionManager.session();
+//			Squad g = (Squad) s.getAttribute("squad");
+//			s.invalidate();
+			this.gr.delete(id);
 			return "redirect:/group/list";
 	
 	}

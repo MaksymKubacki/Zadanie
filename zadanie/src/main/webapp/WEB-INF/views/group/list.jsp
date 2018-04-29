@@ -14,7 +14,7 @@
 <body>
 	<p>Group list</p>
 	<c:forEach items="${availableSquads}" var="squad">
-		<c:out value="${squads}" />
+		<c:out value="${squads.name}" />
 		<a href="/zadanie/group/${squad.id}/del">DEL</a>
 		<a href="/zadanie/group/${squad.id}/edit">Edit</a>
 		<br />

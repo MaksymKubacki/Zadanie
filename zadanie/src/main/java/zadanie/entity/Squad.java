@@ -1,33 +1,27 @@
 package zadanie.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.ManyToMany;
 
 @Entity
-//@Table(name = "group")
 public class Squad {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	private String name;
-	@ManyToOne
-	private User users;
+	@ManyToMany(mappedBy = "squad")
+	private List<User> users = new ArrayList<>();
 	
 	
 	public Squad() {
 		super();
-	}
-
-
-	public Squad(String name, User users) {
-		super();
-		this.name = name;
-		this.users = users;
 	}
 
 
@@ -51,13 +45,16 @@ public class Squad {
 	}
 
 
-	public User getUsers() {
-		return users;
-	}
+//	public List<User> getUsers() {
+//		return users;
+//	}
+//
+//
+//	public void setUsers(List<User> users) {
+//		this.users = users;
+//	}
 
 
-	public void setUsers(User users) {
-		this.users = users;
-	}
+	
 
 }

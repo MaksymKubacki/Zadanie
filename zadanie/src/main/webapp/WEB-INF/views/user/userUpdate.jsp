@@ -15,9 +15,15 @@
 	<form:form method="post" modelAttribute="user">
 		<p>
 			User Nickname
-			<form:input path="nickame" />
-			<form:errors path="nickame"></form:errors>
+			<form:input path="nickname" type="text" />
+			<form:errors path="nickname"></form:errors>
 		</p>
+		<%--<form:select path="publisher">
+			<form:options items="${availablePublishers}" itemValue="id"
+				itemLabel="name" />
+		</form:select>
+		<form:errors path="publisher" />
+		<br /> --%>
 		<p>
 			Password
 			<form:password path="password" />

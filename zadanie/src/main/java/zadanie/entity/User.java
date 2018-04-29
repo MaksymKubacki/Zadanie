@@ -1,35 +1,33 @@
 package zadanie.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.ManyToMany;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-//@Table(name = "user")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-//	@NotEmpty
-//	@Column(unique = true)
+	@NotEmpty
+	@Column(unique = true)
 	private String nickname;
 	private String firstName;
 	private String lastName;
 	private Date birthDate;
 	private String password;
-	@OneToMany
-	private List<Squad> squad;
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	private List<Squad> squad = new ArrayList<>();
 	
 	public User() {
 		super();

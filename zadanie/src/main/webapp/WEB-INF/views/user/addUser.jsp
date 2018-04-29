@@ -29,7 +29,14 @@
 		<input type='submit' />
 		<br />
 	</form:form>
-	${user}
+	<p>User list</p>
+	<c:forEach items="${availableUsers}" var="user">
+		<c:out value="${user}" />
+		<a href="/zadanie/user/${user.id}/del">DEL</a>
+		<a href="/zadanie/user/${user.id}/edit">Edit</a>
+		<br />
+	</c:forEach>
+	<%-- 	${user} --%>
 	<br />
 
 </body>

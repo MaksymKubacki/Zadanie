@@ -13,12 +13,22 @@
 </head>
 
 <body>
-<p>Add Group</p>
+	<p>Add Group</p>
 	<form:form method="post" modelAttribute="squad">
-		Name<form:input path="name" type="text"/> <form:errors path="name" /> <br />
-		<input type='submit' /><br />
+		Name <form:input path="name" type="text" />
+		<form:errors path="name" />
+		<br />
+		<input type='submit' />
+		<br />
 	</form:form>
-${squad}<br/>
+	<p>Group list</p>
+	<c:forEach items="${availableSquads}" var="squad">
+		<c:out value="${squad}" />
+		<a href="/zadanie/group/${squad.id}/del">DEL</a>
+		<a href="/zadanie/group/${squad.id}/edit">Edit</a>
+		<br />
+	</c:forEach>
+	<br />
 
 </body>
 </html>
